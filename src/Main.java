@@ -9,15 +9,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("[i] Формат ввода данных в калькулятор: a + b, a * b, ...");
         System.out.println("[i] Разрешены числа от 1 до 10! Только целые числа!");
-        System.out.print("[+] Введите арифметическую операцию: ");
-        // Сохраняем в переменную полученные данные от пользователя
-        String input = scanner.nextLine();
+        System.out.println("[i] Закнчить работу с калькулятором - exit");
 
-        // Вызываем метод calc и выводим результат
-        try {
-            System.out.println("[+] Результат: " + calc(input));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+
+        while (true) {
+            System.out.print("[+] Введите арифметическую операцию: ");
+            // Сохраняем в переменную полученные данные от пользователя
+            String input = scanner.nextLine();
+
+            // Проверка на выход из цикла
+            if ("exit".equals(input)) {
+                break;
+            }
+
+            // Вызываем метод calc и выводим результат
+            try {
+                System.out.println("[+] Результат: " + calc(input));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
